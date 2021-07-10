@@ -6,7 +6,8 @@ export default class ItemAddForm extends Component {
 render () {
     return (
         <div className="item-add-form">
-        <button>Add New Item</button>
+            <button className="btn btn-outline-secondary"
+            onClick={() => this.props.onItemAdded }>Add New Item</button>
         </div>
     )
 }
