@@ -31,9 +31,6 @@ export default class App extends Component {
     deleteItem = (id) => {
         this.setState(({ todoData }) => {
             const ind = todoData.findIndex((el) => el.id === id);
-           // todoData.splice(ind, 1);
-           // const before = todoData.slice(0, ind);
-           // const after = todoData.slice(ind + 1);
             const newArray = [...todoData.slice(0, ind), ...todoData.slice(ind + 1)];
            return {
                todoData: newArray
@@ -45,15 +42,14 @@ export default class App extends Component {
         const newItem = this.createTodoItem(text);
         // add element in array
         this.setState(({ todoData }) => {
-             const newArr = [
+             const newArr = [ 
                  ...todoData,
                  newItem
              ];
              return {
                  todoData: newArr
              };
-        });
-
+        }); 
     };
     toggleProperty(arr, id, propName) {
         const ind = arr.findIndex((el) => el.id === id);
@@ -61,6 +57,7 @@ export default class App extends Component {
         // 1. update object
         const oldItem = arr[ind];
         const newItem = {...oldItem, [propName]: !oldItem[propName] };
+        
         //2. construct new Array
         return  [
             ...arr.slice(0, ind),
@@ -78,7 +75,7 @@ export default class App extends Component {
         });
     };
     onToggleImportant = (id) => {
-        this.setState(({todoData}) => {
+        this.setState(({ todoData }) => {
             return {
                 todoData: this.toggleProperty(todoData, id, 'important')
             };
@@ -137,7 +134,7 @@ export default class App extends Component {
                 <ItemAddForm onItemAdded = { this.addItem } />
             </div>
         );
-    }
+    };
 
-};
+}
 
