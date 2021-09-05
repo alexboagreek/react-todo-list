@@ -11,7 +11,7 @@ const TodoListItem = ({ important, done,
   }
 
   if (done) {
-    classNames += ' done';
+    classNames += 'done';
   }
 
 
